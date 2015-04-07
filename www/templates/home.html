@@ -1,0 +1,33 @@
+<div>
+	<form action="" method="post" enctype="multipart/form-data">
+		<center><legend>Fill The Form</legend></center>
+			<br>
+		  <p>
+			<label for="first_name">First Name</label>
+			<input type="text" maxlength="30" ng-model='employee.firstname'>
+		  </p>
+		  <p>
+			<label for="last_name">Last Name</label>
+			<input type="text" maxlength="30" ng-model='employee.lastname'>
+		  </p>
+		  <p>
+			<label for="email">Email</label>
+			<input type="email" maxlength="40" ng-model='employee.email'>
+		  </p>
+		  <p>
+		  <label for="password">Contact No.</label>
+		  <input type="number" maxlength="50" ng-model='employee.contactno'>
+		  </p>
+		   <p>
+			<input type="radio" value="Male" ng-model='employee.gender'>
+			<label for="Male">Male&nbsp;&nbsp;&nbsp;</label>
+			<input type="radio" value="Female" ng-model='employee.gender'>
+			<label for="Female">Female</label>
+		  </p>
+		  <p>
+			<input type="submit" ng-click="addEmployee()" value="Update">
+			<input type="reset" name="Reset" value="Reset">
+		  </p>
+	</form>
+
+</div>
