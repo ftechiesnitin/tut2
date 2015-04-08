@@ -1,32 +1,37 @@
 var app = angular.module("myApp",['ui.router','ngAnimate']);
-app.service('updateData', function() {
+
+  app.service('updateData', function() {
 	this.data;
-}); 
+});  
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	
 	$urlRouterProvider.otherwise('/');
 	
-	$stateProvider.state('home', {
+	$stateProvider
+	.state('home', {
 		url: '/',
 		templateUrl: 'templates/home.html',
 		controller: 'homeController'
-	}).state('employeeList', {
+	})
+	.state('employeeList', {
 		url: '/employeeList',
 		controller: 'employeeListController',
 		templateUrl: 'templates/employeeList.html'
-	}).state('editEmployee', {
+	})
+	.state('editEmployee', {
 		url: '/editEmployee',
 		controller: 'editEmployeeController',
 		templateUrl: 'templates/editEmployee.html'
-	}).state('deleteEmployee', {
+	})
+	.state('deleteEmployee', {
 		url: '/deleteEmployee',
 		controller: 'deleteEmployeeController',
 		templateUrl: 'templates/deleteEmployee.html'
 	});
 }]);
 
-/* app.controller('homeController', function($scope, $http){
+ app.controller('homeController', function($scope, $http){
 	console.log("this is homeController");
 	$scope.addEmployee = function(employee){
 		console.log(employee);
@@ -38,21 +43,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 
 	}
 });
- */
- app.controller('homeController', function($scope, $http){
-	$scope.addEmployee = function(employee){
-		/* console.log(employee);
-		$http.post("http://localhost:3000/api/addEmployee",employee).success(function(res, req) {
-   }).error(function() {
-             console.log("Data connection is failed");
-         }); */
-		 $http.post("http://localhost:3000/api/addEmployee", employee).success(function(req, res) {
-			console.log('Success');
-		}).error(function() {
-			console.log('Error Occurred');
-		});  
-	}
-}); 
  
 app.controller('employeeListController', function($scope, $http, $state, updateData){
 		$http.get("http://localhost:3000/api/listEmployee").success(function(req, res) {
@@ -74,46 +64,3 @@ app.controller('editEmployeeController', function($scope, $http, updateData){
 	$scope.employee = updateData.data;
 	console.log($scope);
 }); 
-
-
-/* var app = angular.module("myApp",['ngRoute']);
-
-app.config(['$routeProvider', function($routeProvider) {
-	$routeProvider.
-	when('/', {
-		templateUrl: 'templates/home.html',
-		controller: 'homeController'
-	}).
-	when('/addEmployee', {
-		templateUrl: 'templates/addEmployee.html',
-		controller: 'addEmployeeController'
-	}).
-	when('/employeeList', {
-		templateUrl: 'templates/employeeList.html',
-		controller: 'employeeListController'
-	}).
-	when('/viewEmployee', {
-		templateUrl: 'templates/viewEmployee.html',
-		controller: 'viewEmployeeController'
-	}).
-	when('/deleteEmployee', {
-		templateUrl: 'templates/deleteEmployee.html',
-		controller: 'deleteEmployeeController'
-	}).
-	otherwise({
-		redirectTo: '/'
-	});
-}]);
-
-app.controller('homeController', function($scope, $http){
-	console.log("this is homeController");
-	$scope.addEmployee = function(data){
-		console.log(data);
-		$http.post("localhost:3000/api/addEmployee",data).success(function(res, req) {
-			}).error(function() {
-            	console.log("Data connection is failed");
-        	});
-
-	}
-});
- */

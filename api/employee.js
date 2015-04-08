@@ -31,7 +31,7 @@ exports.addEmployee = function(req, res) {
 //Showing list of Employee
 exports.listEmployee = function(req, res) {
 	var query = "select * from tbl_employee_details";
-	db.query(query, function(err, rows){
+	connection.query(query, function(err, rows){
 		console.log(rows);
 		res.jsonp(rows);
 	});
@@ -39,7 +39,7 @@ exports.listEmployee = function(req, res) {
 
 //Editing the Employee Details
 exports.editEmployee = function(req, res) {
-	var query = "select * from tbl_employee_details where e_id=";
+	var query = "select * from tbl_employee_details where e_id="+ req.employee.e_id;
 	db.query(query, function(err, rows){
 		console.log(rows);
 		res.jsonp(rows);

@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({
 
 app.use('/', express.static(__dirname + '/www'));
 app.use('/api', express.static(__dirname + '/api'));
+app.use('/lib', express.static(__dirname + '/lib'));
 
 var api = require('./api/employee.js');
 
