@@ -28,12 +28,13 @@ app.config(['$routeProvider', function($routeProvider) {
 }]);
 
 app.controller('homeController', function($scope, $http){
+	console.log("this is homeController");
 	$scope.addEmployee = function(data){
 		console.log(data);
-		/*$http.post("localhost:3000/api/addEmployee",employee).success(function(res, req) {
+		$http.post("localhost:3000/api/addEmployee",data).success(function(res, req) {
 			}).error(function() {
             	console.log("Data connection is failed");
-        	});*/
+        	});
 
 	}
 });
