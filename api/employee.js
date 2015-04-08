@@ -1,3 +1,4 @@
+
 var http = require('http');
 var mysql = require('mysql');
 
@@ -6,8 +7,6 @@ var db = mysql.createPool({
 	host: 'localhost',
 	user: 'root',
 	password: '',
-	username: 'root',
-	password: 'toor',
 	database: 'company'
 });
 
@@ -16,10 +15,8 @@ var CRUD = require('mysql-crud');
 var empcrud = CRUD(db,'tbl_employee_details');
 
 //Adding Employee
-empcrud.create({
-	exports.addEmployee = function(req, res) {
-		console.log(req.body);
-	/*empcrud.create({
+exports.addEmployee = function(req, res) {
+	empcrud.create({
 		'first_name': req.body.firstname,
 		'last_name': req.body.lastname,
 		'email': req.body.email,
@@ -29,10 +26,11 @@ empcrud.create({
 	function(err){
 		console.log(err);
 	}
-	*/
+	
+	);
 }
 
-/*Showing list of Employee
+//Showing list of Employee
 exports.listEmployee = function(req, res) {
 	var query = "select * from tbl_employee_details";
 	db.query(query, function(err, rows){
@@ -47,6 +45,5 @@ exports.editEmployee = function(req, res) {
 	db.query(query, function(err, rows){
 		console.log(rows);
 		res.jsonp(rows);
-	})
-	);*/
+	});
 }
