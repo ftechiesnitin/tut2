@@ -4,7 +4,7 @@ var app = express();
 app.use('/', express.static(__dirname + '/www'));
 app.use('/api', express.static(__dirname + '/api'));
 
-var api = require('./api/employee.js');
+var api = require('./api/employee');
 
 app.post('/api/addEmployee', api.addEmployee);
 

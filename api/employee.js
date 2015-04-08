@@ -6,8 +6,8 @@ var mysql = require('mysql');
 var db = mysql.createPool({
 	host: 'localhost',
 	username: 'root',
-	password: '';
-	database: 'company';
+	password: 'toor',
+	database: 'company'
 });
 
 //
@@ -15,8 +15,10 @@ var CRUD = require('mysql-crud');
 var empcrud = CRUD(db,'tbl_employee_details');
 
 //Adding Employee
-export.addEmployee = function(req, res) {
-	empcrud.create({
+
+exports.addEmployee = function(req, res) {
+	console.log(req.body);
+	/*empcrud.create({
 		'first_name': req.body.firstname,
 		'last_name': req.body.lastname,
 		'email': req.body.email,
@@ -27,5 +29,5 @@ export.addEmployee = function(req, res) {
 		console.log('Connection Error. Try again');
 	}
 	
-	);
+	);*/
 }
