@@ -4,9 +4,9 @@ var mysql = require('mysql');
 
 //Database details
 var connection = mysql.createPool({
-  host :'localhost',
-  user : 'root',
-  password : '',
+  host :'apps.fountaintechies.com',
+  user : 'ftdev',
+  password : '10gXWOqeaf',
  database : 'company',
  });
 
