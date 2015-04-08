@@ -16,10 +16,9 @@ var CRUD = require('mysql-crud');
 var empcrud = CRUD(db,'tbl_employee_details');
 
 //Adding Employee
-exports.addEmployee = function(req, res) {
-	empcrud.create({
-exports.addEmployee = function(req, res) {
-	console.log(req.body);
+empcrud.create({
+	exports.addEmployee = function(req, res) {
+		console.log(req.body);
 	/*empcrud.create({
 		'first_name': req.body.firstname,
 		'last_name': req.body.lastname,
@@ -30,10 +29,10 @@ exports.addEmployee = function(req, res) {
 	function(err){
 		console.log(err);
 	}
-	);
+	*/
 }
 
-//Showing list of Employee
+/*Showing list of Employee
 exports.listEmployee = function(req, res) {
 	var query = "select * from tbl_employee_details";
 	db.query(query, function(err, rows){
