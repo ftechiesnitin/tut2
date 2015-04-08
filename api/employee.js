@@ -3,16 +3,16 @@ var http = require('http');
 var mysql = require('mysql');
 
 //Database details
-var db = mysql.createPool({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'company'
-});
+var connection = mysql.createPool({
+  host :'localhost',
+  user : 'root',
+  password : '',
+ database : 'company',
+ });
 
 //
 var CRUD = require('mysql-crud');
-var empcrud = CRUD(db,'tbl_employee_details');
+var empcrud = CRUD(connection,'tbl_employee_details');
 
 //Adding Employee
 exports.addEmployee = function(req, res) {
@@ -22,11 +22,9 @@ exports.addEmployee = function(req, res) {
 		'email': req.body.email,
 		'contact_no': req.body.contactno,
 		'gender': req.body.gender
-	},
-	function(err){
+	}, function(err){
 		console.log(err);
 	}
-	
 	);
 }
 
