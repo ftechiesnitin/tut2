@@ -1,4 +1,3 @@
-
 var http = require('http');
 var mysql = require('mysql');
 
@@ -7,6 +6,8 @@ var db = mysql.createPool({
 	host: 'localhost',
 	user: 'root',
 	password: '',
+	username: 'root',
+	password: 'toor',
 	database: 'company'
 });
 
@@ -17,6 +18,9 @@ var empcrud = CRUD(db,'tbl_employee_details');
 //Adding Employee
 exports.addEmployee = function(req, res) {
 	empcrud.create({
+exports.addEmployee = function(req, res) {
+	console.log(req.body);
+	/*empcrud.create({
 		'first_name': req.body.firstname,
 		'last_name': req.body.lastname,
 		'email': req.body.email,
@@ -26,7 +30,6 @@ exports.addEmployee = function(req, res) {
 	function(err){
 		console.log(err);
 	}
-	
 	);
 }
 
@@ -45,5 +48,6 @@ exports.editEmployee = function(req, res) {
 	db.query(query, function(err, rows){
 		console.log(rows);
 		res.jsonp(rows);
-	});
+	})
+	);*/
 }

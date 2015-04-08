@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({
 app.use('/', express.static(__dirname + '/www'));
 app.use('/api', express.static(__dirname + '/api'));
 
-var api = require('./api/employee.js');
+var api = require('./api/employee');
 
 app.post('/api/addEmployee', api.addEmployee);
 app.get('/api/listEmployee', api.listEmployee);
