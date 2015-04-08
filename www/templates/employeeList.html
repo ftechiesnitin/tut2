@@ -1,7 +1,7 @@
 <div>
 	<ul>
 		<li ng-repeat="employee in data">
-		<p>{{ employee.e_id }} | {{ employee.first_name }} | {{ employee.last_name }} | {{ employee.email }} | {{ employee.contact_no }} | {{ employee.gender }} <input type='submit' ng-click='editData(employee)' value='EDIT' /></p>
+		<p>{{ employee.e_id }} | {{ employee.first_name }} | {{ employee.last_name }} | {{ employee.email }} | {{ employee.contact_no }} | {{ employee.gender }} <input type='submit' ng-click='editData(employee)' value='EDIT' />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" ng-click="deleteDetail(employee)" value="DELETE"></p>
 		</li>
 	</ul>
 </div>

@@ -23,11 +23,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		url: '/editEmployee',
 		controller: 'editEmployeeController',
 		templateUrl: 'templates/editEmployee.html'
-	})
-	.state('deleteEmployee', {
-		url: '/deleteEmployee',
-		controller: 'deleteEmployeeController',
-		templateUrl: 'templates/deleteEmployee.html'
 	});
 }]);
 
@@ -57,10 +52,44 @@ app.controller('employeeListController', function($scope, $http, $state, updateD
 			updateData.data = employee;
 			$state.go("editEmployee");
 		}
+		
+		$scope.deleteDetail = function(employees){
+			console.log(employees);
+			$scope.empl = employees;
+			//$scope.emp = updateData.data;
+			console.log($scope.empl);
+			$http.post("http://localhost:3000/api/deleteEmployee", $scope.empl).success(function(res, req) {
+				//$scope.emp = res[0];
+			console.log ($scope.empl);
+			}).error(function() {
+				console.log("Data connection is failed");
+			});
+			$state.go("employeeList");
+		}
 	
 });
 
-app.controller('editEmployeeController', function($scope, $http, updateData){
+app.controller('editEmployeeController', function($scope, $http, updateData, $state){
 	$scope.employee = updateData.data;
-	console.log($scope);
+	console.log($scope.employee);
+    $http.post("http://localhost:3000/api/editEmployee", $scope.employee).success(function(res, req) {
+        $scope.employees = res[0];
+		console.log ($scope.employees);
+    }).error(function() {
+        console.log("Data connection is failed");
+    });
+	
+	$scope.updateDetail = function(employees){
+			console.log(employees);
+			$scope.emp = employees;
+			//$scope.emp = updateData.data;
+			console.log($scope.emp);
+			$http.post("http://localhost:3000/api/updateEmployee", $scope.emp).success(function(res, req) {
+				//$scope.emp = res[0];
+				console.log ($scope.emp);
+			}).error(function() {
+				console.log("Data connection is failed");
+			});
+			$state.reload();
+		}
 }); 

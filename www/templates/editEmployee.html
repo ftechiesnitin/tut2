@@ -1,31 +1,31 @@
 <div>
-	<form enctype="multipart/form-data">
+	<form enctype="multipart/form-data" ng-controller="editEmployeeController">
 		<center><legend>Fill The Form</legend></center>
 			<br>
 		  <p>
 			<label for="first_name">First Name</label>
-			<input type="text" maxlength="30" ng-model='employee.firstname'>
+			<input type="text" ng-model="employees.first_name">
 		  </p>
 		  <p>
 			<label for="last_name">Last Name</label>
-			<input type="text" maxlength="30" ng-model='employee.lastname'>
+			<input type="text" ng-model='employees.last_name'>
 		  </p>
 		  <p>
 			<label for="email">Email</label>
-			<input type="email" maxlength="40" ng-model='employee.email'>
+			<input type="email" ng-model='employees.email'>
 		  </p>
 		  <p>
 		  <label for="password">Contact No.</label>
-		  <input type="number" maxlength="50" ng-model='employee.contactno'>
+		  <input type="number" maxlength="50" ng-model='employees.contact_no'>
 		  </p>
 		   <p>
-			<input type="radio" value="Male" ng-model='employee.gender'>
+			<input type="radio" value="Male" ng-model='employees.gender'>
 			<label for="Male">Male&nbsp;&nbsp;&nbsp;</label>
-			<input type="radio" value="Female" ng-model='employee.gender'>
+			<input type="radio" value="Female" ng-model='employees.gender'>
 			<label for="Female">Female</label>
 		  </p>
 		  <p>
-			<input type="submit" ng-click="addEmployee(employee)" value="ADD">
+			<input type="submit" ng-click="updateDetail(employees)" value="UPDATE">
 			<input type="reset" name="Reset" value="Reset">
 		  </p>
 	</form>

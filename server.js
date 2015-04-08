@@ -16,7 +16,9 @@ var api = require('./api/employee.js');
 
 app.post('/api/addEmployee', api.addEmployee);
 app.get('/api/listEmployee', api.listEmployee);
-app.get('/api/editEmployee', api.editEmployee);
+app.post('/api/editEmployee', api.editEmployee);
+app.post('/api/updateEmployee', api.updateEmployee);
+app.post('/api/deleteEmployee', api.deleteEmployee);
 
 
 app.listen(3000);
