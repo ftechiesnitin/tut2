@@ -10,7 +10,7 @@ var connection = mysql.createPool({
  database : 'company',
  });
 
-//
+//Loading Mysql-CRUD
 var CRUD = require('mysql-crud');
 var empcrud = CRUD(connection,'tbl_employee_details');
 
